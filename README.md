@@ -1,5 +1,3 @@
-# ros2_humble_grid_sokoban
-
 # TurtleBot3 ROS2 Humble Workspace - Grid Navigation & Sokoban
 
 This ROS2 workspace contains packages for controlling a TurtleBot3 robot to perform navigation tasks within a 2D grid environment using ROS2 Humble. It includes solutions for three assignments: basic grid traversal, traversal with obstacles, and a Sokoban puzzle.
@@ -12,34 +10,7 @@ This ROS2 workspace contains packages for controlling a TurtleBot3 robot to perf
     * `turn_controller.py`: Manages turning. It subscribes to `/turn_command` (`"left"`, `"right"`, `"uturn"`) and uses odometry (`/odom`) to execute 90-degree or 180-degree turns, publishing velocity commands to `/cmd_vel` and status updates to `/turn_status`.
 * **High-Level Navigation:** Nodes orchestrate sequences of turns and forward movements to complete specific tasks.
 
-## Workspace Structure
-
-* **`ros2_ws_camera/`**: The root of the ROS2 workspace.
-    * **`src/`**: Contains the source code for the ROS2 packages.
-        * **`camera_pkg/`**: The primary package containing all nodes and logic.
-            * **`camera_pkg/`**: Python module source files.
-                * `edge_detection.py`: Detects lane lines from the camera feed.
-                * `lane_centering_node.py`: Controls precise forward movement and centering.
-                * `turn_controller.py`: Controls turning actions.
-                * `grid_navigator.py`: Orchestrates Assignment 1 (full grid traversal).
-                * `grid_navigator_A2.py`: Orchestrates Assignment 2 (traversal with blocked squares) using BFS.
-                * `sokoban_navigator.py`: Orchestrates Assignment 3 (Sokoban puzzle) using A* search.
-                * **`sokoban/`**: Sub-package containing Sokoban game logic, utilities, and the A* solver.
-                    * `sk_game.py`: Defines the Sokoban game state, map loading (currently hardcoded), and basic move logic.
-                    * `sk_solver.py`: Implements the A* search algorithm to find a Sokoban solution and provides visualization capabilities.
-                    * `sk_solver_util.py`: Contains utility classes for the A* solver, including the heuristic calculation and node representation.
-                    * `sk_utilities.py`: Defines enums for Tiles, Directions, and the Push action.
-            * **`config/`**: Configuration files.
-                * `grid_config.yaml`: Parameters for grid dimensions (though currently hardcoded in nodes) and topic names. *(Note: The grid dimensions seem hardcoded in the Python files `grid_navigator.py`, `grid_navigator_A2.py`, and `sokoban_navigator.py`, potentially overriding the YAML file)*.
-            * **`launch/`**: Launch files to start the nodes for each assignment.
-                * `grid_nav.launch.py`: Launches nodes for Assignment 1.
-                * `grid_nav_A2.launch.py`: Launches nodes for Assignment 2.
-                * `sokoban_nav.launch.py`: Launches nodes for Assignment 3.
-            * **`maps/`**: Contains map data.
-                * `map_sk.csv`: Map definition for the Sokoban puzzle (currently hardcoded in `sk_game.py`).
-            * `package.xml`: Package manifest defining dependencies and metadata[cite: 1].
-            * `setup.cfg`: Configuration for package installation[cite: 2].
-            * `setup.py`: Defines how the package is built and installed, including node entry points.
+---
 
 ## Assignments
 
@@ -57,7 +28,7 @@ This ROS2 workspace contains packages for controlling a TurtleBot3 robot to perf
 * **Fail Conditions:** Moving two squares at once, stopping on a boundary, moving into a blocked square, moving outside the matrix.
 * **Launch:** `ros2 launch camera_pkg grid_nav_A2.launch.py`
 
-### Assignment 3: Sokoban (50%)
+### Assignment 3: Sokoban
 
 * **Goal:** Use the robot to push two boxes to predefined goal locations within a 2D matrix.
 * **Logic:** Uses `sokoban_navigator.py` which orchestrates the task.
@@ -67,6 +38,8 @@ This ROS2 workspace contains packages for controlling a TurtleBot3 robot to perf
     * It executes these relative moves by sending commands to `lane_centering_node.py` and `turn_controller.py`.
 * **Fail Conditions:** Robot/box moves outside matrix, stopping on boundary, moving two fields, pushing two boxes, pulling a box, moving into a blocked field.
 * **Launch:** `ros2 launch camera_pkg sokoban_nav.launch.py`
+
+---
 
 ## Setup and Usage
 
@@ -90,6 +63,8 @@ This ROS2 workspace contains packages for controlling a TurtleBot3 robot to perf
         * Assignment 2: `ros2 launch camera_pkg grid_nav_A2.launch.py`
         * Assignment 3: `ros2 launch camera_pkg sokoban_nav.launch.py`
 
+---
+
 ## Modification and Extension
 
 * **Parameters:** Many parameters like movement speeds, gains (Kp), tolerances, and topic names are defined in the Python node files (e.g., `lane_centering_node.py`) or launch files. Modify these values directly in the code or adjust the launch files/YAML configuration (`grid_config.yaml`, although note the hardcoding overrides mentioned earlier).
@@ -99,3 +74,7 @@ This ROS2 workspace contains packages for controlling a TurtleBot3 robot to perf
     * For Assignment 3 (Sokoban), the map layout is hardcoded in `camera_pkg/sokoban/sk_game.py`. Modify the `hardcoded_map_data` list within the `__init__` method. You can use the `Tile` enum values from `sk_utilities.py` to define walls, floor, robot start, box starts, and goal locations. Remember that the numerical values in the map often represent combinations (e.g., Robot + Floor = 8 + 2 = 10).
 * **Logic:** The core logic for navigation (serpentine, BFS, A*) and movement control resides in the respective Python files. You can modify these scripts to change algorithms or behaviors.
 * **Adding Nodes:** Define new nodes in Python, add entry points in `setup.py`, and include them in the relevant launch files.
+
+---
+
+##### Click [here](./README.md) to see workspace structure
