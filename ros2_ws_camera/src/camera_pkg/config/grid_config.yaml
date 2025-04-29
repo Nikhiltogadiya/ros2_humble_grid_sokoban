@@ -1,0 +1,25 @@
+grid_commander_node:
+  ros__parameters:
+    tape_thickness_m: 0.025
+    start_row: 0
+    start_col: 0
+    start_orientation_rad: 0.0 # East
+    move_forward_topic: "/move_forward_distance"
+    distance_status_topic: "/distance_status"
+    turn_command_topic: "/turn_command"
+    turn_status_topic: "/turn_status"
+    control_frequency: 2.0
+    angle_tolerance_rad: 0.087266 # 5 degrees
+    wait_time_at_square_sec: 0.5
+    square_dimensions: [
+      # # Row 0
+      [ {'length': 0.22, 'width': 0.21}, {'length': 0.23, 'width': 0.23}, {'length': 0.235, 'width': 0.235}, {'length': 0.25, 'width': 0.25}, {'length': 0.25, 'width': 0.25} ]
+      # # Row 1
+      # [ {'length': 0.217, 'width': 0.21}, {'length': 0.215, 'width': 0.24}, {'length': 0.22, 'width': 0.23}, {'length': 0.22, 'width': 0.225}, {'length': 0.215, 'width': 0.214} ],
+      # # Row 2
+      # [ {'length': 0.217, 'width': 0.207}, {'length': 0.217, 'width': 0.235}, {'length': 0.217, 'width': 0.231}, {'length': 0.222, 'width': 0.226}, {'length': 0.224, 'width': 0.214} ],
+      # # Row 3
+      # [ {'length': 0.203, 'width': 0.203}, {'length': 0.216, 'width': 0.233}, {'length': 0.214, 'width': 0.233}, {'length': 0.227, 'width': 0.226}, {'length': 0.225, 'width': 0.211} ],
+      # # Row 4
+      # [ {'length': 0.257, 'width': 0.257}, {'length': 0.252, 'width': 0.253}, {'length': 0.252, 'width': 0.252}, {'length': 0.245, 'width': 0.245}, {'length': 0.237, 'width': 0.237} ]
+    ]

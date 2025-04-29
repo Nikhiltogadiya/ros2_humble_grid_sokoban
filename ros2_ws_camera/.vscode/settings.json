@@ -1,0 +1,40 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/niks_autonomous/ros2_ws_img_proc/build/img_proc_pkg",
+        "/home/niks_autonomous/ros2_ws_img_proc/install/img_proc_pkg/lib/python3.10/site-packages",
+        "/home/niks_autonomous/colcon_ws/build/turtlesim_control",
+        "/home/niks_autonomous/colcon_ws/install/turtlesim_control/lib/python3.10/site-packages",
+        "/home/niks_autonomous/colcon_ws/build/py_pubsub",
+        "/home/niks_autonomous/colcon_ws/install/py_pubsub/lib/python3.10/site-packages",
+        "/home/niks_autonomous/ros2_ws_yt/build/my_robot_controller",
+        "/home/niks_autonomous/ros2_ws_yt/install/my_robot_controller/lib/python3.10/site-packages",
+        "/home/niks_autonomous/turtlebot3_ws/build/turtlebot3_teleop",
+        "/home/niks_autonomous/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.10/site-packages",
+        "/home/niks_autonomous/turtlebot3_ws/build/turtlebot3_example",
+        "/home/niks_autonomous/turtlebot3_ws/install/turtlebot3_example/lib/python3.10/site-packages",
+        "/home/niks_autonomous/turtlebot3_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages",
+        "/home/niks_autonomous/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/local/lib/python3.10/dist-packages",
+        "/home/niks_autonomous/ros2_ws_nik/install/my_turtlebot3_rl/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/niks_autonomous/ros2_ws_img_proc/build/img_proc_pkg",
+        "/home/niks_autonomous/ros2_ws_img_proc/install/img_proc_pkg/lib/python3.10/site-packages",
+        "/home/niks_autonomous/colcon_ws/build/turtlesim_control",
+        "/home/niks_autonomous/colcon_ws/install/turtlesim_control/lib/python3.10/site-packages",
+        "/home/niks_autonomous/colcon_ws/build/py_pubsub",
+        "/home/niks_autonomous/colcon_ws/install/py_pubsub/lib/python3.10/site-packages",
+        "/home/niks_autonomous/ros2_ws_yt/build/my_robot_controller",
+        "/home/niks_autonomous/ros2_ws_yt/install/my_robot_controller/lib/python3.10/site-packages",
+        "/home/niks_autonomous/turtlebot3_ws/build/turtlebot3_teleop",
+        "/home/niks_autonomous/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.10/site-packages",
+        "/home/niks_autonomous/turtlebot3_ws/build/turtlebot3_example",
+        "/home/niks_autonomous/turtlebot3_ws/install/turtlebot3_example/lib/python3.10/site-packages",
+        "/home/niks_autonomous/turtlebot3_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages",
+        "/home/niks_autonomous/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/local/lib/python3.10/dist-packages",
+        "/home/niks_autonomous/ros2_ws_nik/install/my_turtlebot3_rl/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
