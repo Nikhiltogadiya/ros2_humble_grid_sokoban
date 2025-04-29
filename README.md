@@ -77,4 +77,4 @@ This ROS2 workspace contains packages for controlling a TurtleBot3 robot to perf
 
 ---
 
-##### Click [here](./README.md) to see workspace structure
+##### Click [here](https://github.com/Nikhiltogadiya/ros2_humble_grid_sokoban/tree/main/ros2_ws_camera) to see workspace structure
