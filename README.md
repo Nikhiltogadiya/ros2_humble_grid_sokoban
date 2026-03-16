@@ -1,6 +1,6 @@
 # TurtleBot3 ROS2 Humble Workspace - Grid Navigation & Sokoban
 
-This ROS2 workspace contains packages for controlling a TurtleBot3 robot to perform navigation tasks within a 2D grid environment using ROS2 Humble. It includes solutions for three assignments: basic grid traversal, traversal with obstacles, and a Sokoban puzzle.
+This ROS2 workspace contains packages for controlling a TurtleBot3 robot to perform navigation tasks within a 2D grid environment using ROS2 Humble. It includes solutions for three Tasks: basic grid traversal, traversal with obstacles, and a Sokoban puzzle.
 
 **Core Functionality:**
 
@@ -12,23 +12,23 @@ This ROS2 workspace contains packages for controlling a TurtleBot3 robot to perf
 
 ---
 
-## Assignments
+## Tasks
 
-### Assignment 1: Visit Each Square
+### Task 1: Visit Each Square
 
 * **Goal:** Move the robot to visit every square in a 5x5 grid.
 * **Logic:** Uses `grid_navigator.py`, which follows a serpentine path (row by row, alternating direction) to visit all squares. It calculates the required turns and distances based on hardcoded square dimensions and tape thickness.
 * **Fail Conditions:** Touching square boundary, moving two squares at once, moving outside the matrix.
 * **Launch:** `ros2 launch camera_pkg grid_nav.launch.py`
 
-### Assignment 2: Move with Blocked Squares
+### Task 2: Move with Blocked Squares
 
 * **Goal:** Visit every *free* square in a grid containing blocked squares, using a predefined map.
 * **Logic:** Uses `grid_navigator_A2.py`, which incorporates a hardcoded grid map representing obstacles. It employs a Breadth-First Search (BFS) algorithm to find the path to the nearest unvisited free square. Movement calculation uses hardcoded square dimensions.
 * **Fail Conditions:** Moving two squares at once, stopping on a boundary, moving into a blocked square, moving outside the matrix.
 * **Launch:** `ros2 launch camera_pkg grid_nav_A2.launch.py`
 
-### Assignment 3: Sokoban
+### Task 3: Sokoban
 
 * **Goal:** Use the robot to push two boxes to predefined goal locations within a 2D matrix.
 * **Logic:** Uses `sokoban_navigator.py` which orchestrates the task.
@@ -55,13 +55,13 @@ This ROS2 workspace contains packages for controlling a TurtleBot3 robot to perf
 3.  **Source the Workspace:**
     * In *every new terminal* you use for this workspace, run `source install/setup.bash`.
 
-4.  **Launch an Assignment:**
+4.  **Launch an Task:**
     * Ensure your TurtleBot3 simulation (e.g., Gazebo) or the physical robot is running and publishing necessary topics (`/image_raw`, `/odom`).
     * Open a new terminal, source the workspace (step 3).
     * Run the corresponding launch file:
-        * Assignment 1: `ros2 launch camera_pkg grid_nav.launch.py`
-        * Assignment 2: `ros2 launch camera_pkg grid_nav_A2.launch.py`
-        * Assignment 3: `ros2 launch camera_pkg sokoban_nav.launch.py`
+        * Task 1: `ros2 launch camera_pkg grid_nav.launch.py`
+        * Task 2: `ros2 launch camera_pkg grid_nav_A2.launch.py`
+        * Task 3: `ros2 launch camera_pkg sokoban_nav.launch.py`
 
 ---
 
@@ -69,9 +69,9 @@ This ROS2 workspace contains packages for controlling a TurtleBot3 robot to perf
 
 * **Parameters:** Many parameters like movement speeds, gains (Kp), tolerances, and topic names are defined in the Python node files (e.g., `lane_centering_node.py`) or launch files. Modify these values directly in the code or adjust the launch files/YAML configuration (`grid_config.yaml`, although note the hardcoding overrides mentioned earlier).
 * **Grid Dimensions/Maps:**
-    * For Assignments 1 & 2, the individual square dimensions are currently hardcoded within `grid_navigator.py` and `grid_navigator_A2.py`. You'll need to modify these Python lists directly to change the grid layout.
-    * For Assignment 2, the obstacle map is hardcoded in `grid_navigator_A2.py`. Modify the `self.grid_map` list there.
-    * For Assignment 3 (Sokoban), the map layout is hardcoded in `camera_pkg/sokoban/sk_game.py`. Modify the `hardcoded_map_data` list within the `__init__` method. You can use the `Tile` enum values from `sk_utilities.py` to define walls, floor, robot start, box starts, and goal locations. Remember that the numerical values in the map often represent combinations (e.g., Robot + Floor = 8 + 2 = 10).
+    * For Tasks 1 & 2, the individual square dimensions are currently hardcoded within `grid_navigator.py` and `grid_navigator_A2.py`. You'll need to modify these Python lists directly to change the grid layout.
+    * For Task 2, the obstacle map is hardcoded in `grid_navigator_A2.py`. Modify the `self.grid_map` list there.
+    * For Task 3 (Sokoban), the map layout is hardcoded in `camera_pkg/sokoban/sk_game.py`. Modify the `hardcoded_map_data` list within the `__init__` method. You can use the `Tile` enum values from `sk_utilities.py` to define walls, floor, robot start, box starts, and goal locations. Remember that the numerical values in the map often represent combinations (e.g., Robot + Floor = 8 + 2 = 10).
 * **Logic:** The core logic for navigation (serpentine, BFS, A*) and movement control resides in the respective Python files. You can modify these scripts to change algorithms or behaviors.
 * **Adding Nodes:** Define new nodes in Python, add entry points in `setup.py`, and include them in the relevant launch files.
 
